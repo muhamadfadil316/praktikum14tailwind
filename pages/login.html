@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk & Daftar Akun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <!-- Form Masuk -->
+    <div id="halaman-masuk" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Masuk ke Akun Anda</h2>
+        <form action="#" method="POST" class="space-y-4">
+            <!-- Email -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Alamat Email</label>
+                <input type="email" id="email" name="email" required
+                       class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <!-- Kata Sandi -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Kata Sandi</label>
+                <input type="password" id="password" name="password" required
+                       class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <!-- Lupa Kata Sandi dan Tombol Masuk -->
+            <div class="flex items-center justify-between">
+                <a href="#" id="tautan-lupa-kata-sandi" class="text-sm text-indigo-600 hover:underline">Lupa Kata Sandi?</a>
+                <button type="submit"
+                        class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    Masuk
+                </button>
+            </div>
+        </form>
+        <!-- Tautan ke Daftar Akun -->
+        <p class="text-center text-sm text-gray-600 mt-4">
+            Belum punya akun? <a href="#" id="tautan-daftar" class="text-indigo-600 hover:underline">Daftar Akun</a>
+        </p>
+    </div>
+
+    <!-- Form Daftar Akun -->
+    <div id="halaman-daftar" class="hidden bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Buat Akun Baru</h2>
+        <form action="#" method="POST" class="space-y-4">
+            <!-- Nama Lengkap -->
+            <div>
+                <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                <input type="text" id="nama" name="nama" required
+                       class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <!-- Email -->
+            <div>
+                <label for="daftar-email" class="block text-sm font-medium text-gray-700">Alamat Email</label>
+                <input type="email" id="daftar-email" name="daftar-email" required
+                       class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <!-- Kata Sandi -->
+            <div>
+                <label for="daftar-password" class="block text-sm font-medium text-gray-700">Kata Sandi</label>
+                <input type="password" id="daftar-password" name="daftar-password" required
+                       class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <!-- Tombol Daftar -->
+            <div>
+                <button type="submit"
+                        class="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    Daftar Akun
+                </button>
+            </div>
+        </form>
+        <button id="kembali-ke-masuk-dari-daftar" class="mt-4 text-sm text-gray-500 hover:text-gray-700 underline">
+            Kembali ke Halaman Masuk
+        </button>
+    </div>
+
+    <!-- Form Lupa Kata Sandi -->
+    <div id="halaman-lupa-kata-sandi" class="hidden bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Lupa Kata Sandi?</h2>
+        <p class="text-sm text-gray-600 mb-4">Masukkan alamat email Anda. Kami akan mengirimkan tautan untuk mengatur ulang kata sandi.</p>
+        <form action="#" method="POST" class="space-y-4">
+            <!-- Email -->
+            <div>
+                <label for="lupa-email" class="block text-sm font-medium text-gray-700">Alamat Email</label>
+                <input type="email" id="lupa-email" name="lupa-email" required
+                       class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <!-- Tombol Kirim -->
+            <div>
+                <button type="submit"
+                        class="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    Kirim Tautan Pemulihan
+                </button>
+            </div>
+        </form>
+        <button id="kembali-ke-masuk-dari-lupa" class="mt-4 text-sm text-gray-500 hover:text-gray-700 underline">
+            Kembali ke Halaman Masuk
+        </button>
+    </div>
+
+    <!-- Script untuk Berpindah Halaman -->
+    <script>
+        const tautanDaftar = document.getElementById('tautan-daftar');
+        const tautanLupaKataSandi = document.getElementById('tautan-lupa-kata-sandi');
+        const kembaliDariDaftar = document.getElementById('kembali-ke-masuk-dari-daftar');
+        const kembaliDariLupa = document.getElementById('kembali-ke-masuk-dari-lupa');
+
+        const halamanMasuk = document.getElementById('halaman-masuk');
+        const halamanDaftar = document.getElementById('halaman-daftar');
+        const halamanLupaKataSandi = document.getElementById('halaman-lupa-kata-sandi');
+
+        // Ke Halaman Daftar
+        tautanDaftar.addEventListener('click', function (e) {
+            e.preventDefault();
+            halamanMasuk.classList.add('hidden');
+            halamanDaftar.classList.remove('hidden');
+        });
+
+        // Ke Halaman Lupa Kata Sandi
+        tautanLupaKataSandi.addEventListener('click', function (e) {
+            e.preventDefault();
+            halamanMasuk.classList.add('hidden');
+            halamanLupaKataSandi.classList.remove('hidden');
+        });
+
+        // Kembali ke Halaman Masuk dari Daftar
+        kembaliDariDaftar.addEventListener('click', function () {
+            halamanDaftar.classList.add('hidden');
+            halamanMasuk.classList.remove('hidden');
+        });
+
+        // Kembali ke Halaman Masuk dari Lupa Kata Sandi
+        kembaliDariLupa.addEventListener('click', function () {
+            halamanLupaKataSandi.classList.add('hidden');
+            halamanMasuk.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
